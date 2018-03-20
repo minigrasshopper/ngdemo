@@ -1,0 +1,43 @@
+<div class="container">
+  <app-nav [headline]="'创建订单'"></app-nav>
+  <h5 class='subtitle'>订单商品</h5>
+  <app-goodorder [list]="orderModel.cartGoodsList"></app-goodorder> 
+  
+  <div class="merchantBox exhibitBox">
+    <span class="desc">选择取货门店</span>
+    <span class="value">{{orderModel.orderParams.merchantid?'':'请选择'}}</span>
+    <i class="iconfont icon-ahead"></i>
+    <select name="merchant" [(ngModel)]="orderModel.orderParams.merchantid">
+      <option [value]="item.id" *ngFor="let item of orderModel.merchantList">{{item.name}}</option>
+    </select>
+    <p *ngIf="orderModel.orderParams.merchantid" [innerHTML]='getMerchantInfo(orderModel.orderParams.merchantid)'></p>
+  </div>
+
+  <h5 class='subtitle'>预定信息</h5>
+  <div class="exhibitBox">
+    <span class="desc">手机号</span>
+    <input class="padding0" type="tel" name="mobile" placeholder="请输入" [(ngModel)]="orderModel.orderParams.mobile">
+  </div>
+  <div class="exhibitBox">
+    <span class="desc">取货日期</span>
+    <span class="value">{{orderModel.orderParams.pickupdate?orderModel.orderParams.pickupdate:'请选择'}}</span>
+    <i class="iconfont icon-ahead"></i>
+    <select name="pickupdate" [(ngModel)]="orderModel.orderParams.pickupdate">
+      <option [value]="item" *ngFor="let item of orderModel.bookDateItems">{{item}}</option>
+    </select>
+  </div>
+  <div class="exhibitBox">
+    <span class="desc">取货时间</span>
+    <span class="value">{{orderModel.orderParams.pickuptime?orderModel.orderParams.pickuptime:'请选择'}}</span>
+    <i class="iconfont icon-ahead"></i>
+    <select name="pickuptime" [(ngModel)]="orderModel.orderParams.pickuptime">
+      <option [value]="item" *ngFor="let item of orderModel.bookTimeItems">{{item}}</option>
+    </select>
+  </div>
+  <div class="bottomBox">
+    <p>实付款：
+      <span>&yen;{{orderModel.fee}}</span>
+    </p>
+    <button (click)="jumpOrderDetail()">提交订单</button>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+@import "../../../styles";
+
+.swiper-container{
+  width: 100%;
+  height: 150px;
+  .swiper-wrapper{
+    .swiper-slide{
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.goodsBox{
+  >p{
+    padding: $padding;
+    overflow: hidden;
+    background: #fff;
+    span:nth-child(1){
+      float: left;
+    }
+    span:nth-child(2){
+      float: right;
+      color: $color-primary;
+    }
+  }
+}

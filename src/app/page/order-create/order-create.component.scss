@@ -1,0 +1,21 @@
+@import "../../../styles";
+
+.container{
+  .subtitle{
+    padding: 8px $padding;
+    color: $color-black;
+    font-weight: 500;
+    border-bottom: 1px solid $border;
+  }
+  .merchantBox{
+    p{
+      padding-top: 6px;
+      padding-right: 10px;
+      clear: both;
+      color: $color-gray;
+    }
+  }
+  .bottomBox{
+    text-align: right;
+  }
+}

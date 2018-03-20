@@ -1,0 +1,17 @@
+<div class="container" *ngIf="goodModel.goodDetail">
+  <app-nav [headline]="'商品详情'"></app-nav>
+  <i class="iconfont icon-cart" (click)="jumpCart()"></i>
+  <img class="w-100" [src]="goodModel.goodDetail.cover" alt="">
+  <div class="infoBox">
+    <h6>{{goodModel.goodDetail.name}}</h6>
+    <div>
+      <span>&yen;{{goodModel.goodDetail.price}}</span>
+      <app-cartdeal [num]="num" (changeEmit)="cartEmitHandle($event)"></app-cartdeal>
+    </div>
+    <p>{{goodModel.goodDetail.tips}}</p>
+  </div>
+  <div class="descBox" [innerHTML]='goodModel.goodDetail.description'></div>
+  <div class='bottomBox'>
+    <button (click)='addCartHandle()'>加入购物车</button>
+  </div>
+</div>

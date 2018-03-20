@@ -1,0 +1,97 @@
+@import "../../../styles";
+
+@keyframes cateRun {
+  from{
+    bottom: 0;
+    transform: translateX(-50%) translateY(100%);
+  }
+  to{
+    bottom: 60px;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  height: 50px;
+  background: #fff;
+  text-align: center;
+  border-top: 1px solid $border;
+  ul:nth-child(1){
+    height: 100%;
+    li{
+      width: 25%;
+      height: 100%;
+      float: left;
+      position: relative;
+      border-right: 1px solid $border;
+      div{
+        width: 100%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 1;
+        transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        p{
+          font-size: 1.2rem;
+          color: #666;
+        }
+      }
+      .iconfont{
+        color: #666;
+        font-size: 2rem;
+      }
+      .cartNum{
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        background: $color-primary;
+        color: #fff;
+        padding: 0 4px;
+        font-size: 1.2rem;
+        border-radius: 6px;
+      }
+    }
+    li:last-child{
+      border-right: none;
+    }
+    li.selected{
+      div{
+        p{
+          color: $color-primary;
+        }
+      }
+      .iconfont{
+        color: $color-primary;
+      }
+    }
+  }
+  ul:nth-child(2){
+    background: #fff;
+    position: absolute;
+    z-index: -99;
+    left: 37.5%;
+    border: 1px solid $border;
+    border-radius: 4px;
+    padding: 0 8px;
+    bottom: 0;
+    transform: translateX(-50%) translateY(100%);
+    li{
+      padding: 5px 0;
+      border-bottom: 1px solid $border;
+    }
+    li:last-child{
+      border-bottom: none;
+    }
+    li.selected{
+      color: $color-primary;
+    }
+  }
+  ul.cateRun{
+    animation: cateRun .6s linear both;
+  }
+}

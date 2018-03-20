@@ -1,0 +1,31 @@
+<div class="container">
+  <app-nav [hasBack]="0" [headline]="'个人中心'"></app-nav>
+  <img class="w-100" src="{{'profile.jpg' | imgurl}}" alt="">
+  <app-footer [type]="4"></app-footer>
+  <div class='headerBox'>
+    <img [src]="userModel.headimgurl" alt="">
+    <p>{{userModel.nickname}}</p>
+  </div>
+  <ul class="stateBox">
+    <li (click)="jumpOrderList('unpaid')">
+      <i class="iconfont icon-paying"></i>
+      <p>待付款</p>
+      <span *ngIf="orderModel.stateObj.unpaid">{{orderModel.stateObj.unpaid}}</span>
+    </li>
+    <li (click)="jumpOrderList('unshipped')">
+      <i class="iconfont icon-shipping"></i>
+      <p>待发货</p>
+      <span *ngIf="orderModel.stateObj.unshipped">{{orderModel.stateObj.unshipped}}</span>
+    </li>
+    <li (click)="jumpOrderList('shipped')">
+      <i class="iconfont icon-shipped"></i>
+      <p>待收货</p>
+      <span *ngIf="orderModel.stateObj.shipped">{{orderModel.stateObj.shipped}}</span>
+    </li>
+    <li (click)="jumpOrderList('completed')">
+      <i class="iconfont icon-received"></i>
+      <p>已完成</p>
+      <span *ngIf="orderModel.stateObj.completed">{{orderModel.stateObj.completed}}</span>
+    </li>
+  </ul>
+</div>

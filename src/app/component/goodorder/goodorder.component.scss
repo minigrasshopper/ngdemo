@@ -1,0 +1,36 @@
+@import "../../../styles";
+
+ul{
+  li{
+    border-bottom: 1px solid $border;
+    padding: $padding;
+    overflow: hidden;
+    background: #fff;
+    img{
+      float: left;
+      width: 24%;
+      border: 1px solid #eee;
+    }
+    div{
+      float: right;
+      width: 76%;
+      padding-left: 10px;
+      h6{
+        font-weight: 500;
+        line-height: 1.8rem;
+        margin-bottom: 10px;
+      }
+      p{
+        overflow: hidden;
+        span:first-child{
+          float: left;
+          color: $color-primary;
+        }
+        span:last-child{
+          float: right;
+        }
+      }
+      
+    }
+  }
+}

@@ -1,0 +1,9 @@
+<div>
+  <button (click)="reduceHandle()">
+    <i class="iconfont icon-reduce"></i>
+  </button>
+  <input type="number" [disabled]='disabled' [(ngModel)]="num" (blur)="changeHandle()" name="num" onkeyup="this.value=this.value.replace(/\D+/g, '')">
+  <button (click)="addHandle()">
+    <i class="iconfont icon-add"></i>
+  </button>
+</div>

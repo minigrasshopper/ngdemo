@@ -1,0 +1,44 @@
+@import "../../../styles";
+
+.container{
+  ul.stateBox{
+    overflow: hidden;
+    background: #fff;
+    padding: $padding;
+    margin-bottom: 10px;
+    li{
+      float: left;
+      width: 25%;
+      text-align: center;
+      span{
+        padding-bottom: 6px;
+      }
+    }
+    li.selected{
+      span{
+        color: $color-primary;
+        border-bottom: 1px solid $color-primary;
+      }
+    }
+  }
+
+  ul.orderBox{
+    li{
+      margin-bottom: 10px;
+      h6{
+        text-align: right;
+        padding: $padding;
+        background: #fff;
+        border-bottom: 1px solid $border;
+        button{
+          background: $color-primary;
+          color: #fff;
+          height: 30px;
+          padding: 0 10px;
+          border-radius: 6px;
+          line-height: 30px;
+        }
+      }
+    }
+  }
+}

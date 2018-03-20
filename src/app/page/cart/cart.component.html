@@ -1,0 +1,30 @@
+<div class="container">
+  <app-nav [hasBack]="0" [headline]="'购物车'"></app-nav>
+  <app-footer [type]="3"></app-footer>
+  <h6 class='noHint' *ngIf="cartModel.goodsList.length == 0">购物车是空的<br>快去添加商品吧</h6>
+  <ul class='goodListCart'>
+    <li *ngFor='let item of cartModel.goodsList' [class]='item.picked==1?"selected":""'>
+      <i class='iconfont icon-select abs-v-center' (click)='togglepickHandle(item.goodId)'></i>
+      <img [src]="item.cover" alt="">
+      <div class='infoBox'>
+        <h6>{{item.name}}</h6>
+        <div class='cartBox'>
+          <span>&yen;{{item.price}}</span>
+          <app-cartdeal [disabled]='true' [parentctrol]='true' [num]='item.count' 
+          (reduceEmit)='reduceEmitHandle(item.goodId)' (addEmit)='addEmitHandle(item.goodId)'></app-cartdeal>
+        </div>
+      </div>
+      <i class='iconfont icon-delete' (click)='delHandle(item.goodId)'></i>
+    </li>
+  </ul>
+  <div class="otherBox">
+    <h3>其他推荐</h3>
+    <app-goodlist [list]="goodModel.goodListRandom"></app-goodlist>
+  </div>
+  <div class="bottomBox" *ngIf="cartModel.volume != 0">
+    <p>合计：
+      <span>&yen;{{cartModel.volume}}</span>
+    </p>
+    <button (click)="jumpOrderCreate()">结 算</button>
+  </div>
+</div>

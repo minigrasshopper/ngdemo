@@ -1,0 +1,24 @@
+@import "../../../styles";
+
+div{
+  overflow: hidden;
+  display: inline-block;
+  button,input{
+    float: left;
+    width: 32px;
+    height: 32px;
+  }
+  button{
+    background: #83898f;
+    border-radius: 2px;
+    .iconfont{
+      font-size: 2.2rem;
+      color: #fff;
+    }
+  }
+  input{
+    text-align: center;
+    width: 50px;
+    margin: 0 4px;
+  }
+}

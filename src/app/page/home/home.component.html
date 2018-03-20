@@ -1,0 +1,29 @@
+<div class="container">
+  <app-nav [hasBack]="0" [headline]="'首页'"></app-nav>
+  <app-footer [type]="1"></app-footer>
+
+  <div class="swiper-container">
+    <div class="swiper-pagination"></div>
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="assets/images/swiper1.jpg" alt="">
+      </div>
+      <div class="swiper-slide">
+        <img src="assets/images/swiper2.jpg" alt="">
+      </div>
+      <div class="swiper-slide">
+        <img src="assets/images/swiper3.jpg" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="goodsBox" *ngFor="let item of goodModel.goodListLimit">
+    <ng-container *ngIf="item.goodsnum != 0">
+      <p>
+        <span>{{item.name}}</span>
+        <span (click)="jumpGoodList(item.name, item.id)">More</span>
+      </p>
+      <app-goodlist [list]="item.goods"></app-goodlist>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="container">
+  <app-nav [headline]="'订单列表'"></app-nav>
+  <ul class="stateBox">
+    <li (click)="toggleHandle('unpaid')" [class]="state=='unpaid'?'selected':''">
+      <span>待付款</span>
+    </li>
+    <li (click)="toggleHandle('unshipped')" [class]="state=='unshipped'?'selected':''">
+      <span>待发货</span>
+    </li>
+    <li (click)="toggleHandle('shipped')" [class]="state=='shipped'?'selected':''">
+      <span>待收货</span>
+    </li>
+    <li (click)="toggleHandle('completed')" [class]="state=='completed'?'selected':''">
+      <span>已完成</span>
+    </li>
+  </ul>
+  <ul class="orderBox">
+    <ng-container *ngFor="let item of orderModel.orderList">
+      <li  *ngIf="item.status == state">
+        <app-goodorder [list]="item.goods"></app-goodorder>
+        <h6>
+          <button (click)="jumpOrderDetail(item.id)">查看详情</button>
+        </h6>
+      </li>
+    </ng-container>
+    
+  </ul>
+</div>

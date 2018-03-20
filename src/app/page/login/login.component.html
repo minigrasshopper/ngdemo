@@ -1,0 +1,8 @@
+<div class="container">
+  <app-nav [hasBack]="0" [headline]="'测试路由守卫'"></app-nav>
+  <div class="loginBox abs-center">
+    <input type="text" name="accout" [(ngModel)]="accout" placeholder="请输入帐号">
+    <input type="password" name="password" [(ngModel)]="password" placeholder="请输入密码">
+    <button (click)="loginHandle()">登 录</button>
+  </div>
+</div>

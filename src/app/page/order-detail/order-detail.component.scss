@@ -1,0 +1,18 @@
+@import "../../../styles";
+
+.container{
+  .feeBox{
+    text-align: right;
+    padding: $padding;
+    color: $color-black;
+    span{
+      font-size: 1.6rem;
+      color: $color-primary;
+    }
+  }
+  .bottomBox{
+    button{
+      width: 46%;
+    }
+  }
+}

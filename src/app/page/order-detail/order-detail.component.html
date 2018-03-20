@@ -1,0 +1,71 @@
+<div class="container" *ngIf="orderModel.orderDetail">
+  <app-nav [delta]="delta" [headline]="'创建订单'"></app-nav>
+  <app-goodorder [list]='orderModel.orderDetail.goods'></app-goodorder>
+  <h6 class="feeBox">实付款：
+    <span>{{orderModel.orderDetail.realFee}}</span>
+  </h6>
+  <div class="exhibitBox">
+    <span class="desc">订单编号</span>
+    <span class="value padding0">{{orderModel.orderDetail.orderSn}}</span>
+  </div>
+  <div class="exhibitBox">
+    <span class="desc">订单时间</span>
+    <span class="value padding0">{{orderModel.orderDetail.createat}}</span>
+  </div>
+  <div class="exhibitBox">
+    <span class="desc">订单状态</span>
+    <span class="value padding0">{{orderModel.orderDetail.statusMsg}}</span>
+  </div>
+  <div class="exhibitBox">
+    <span class="desc">取货门店</span>
+    <span class="value padding0">{{orderModel.orderDetail.pickupshop}}</span>
+  </div>
+  <div class="exhibitBox">
+    <span class="desc">手机号</span>
+    <span class="value padding0">{{orderModel.orderDetail.pickupmobile}}</span>
+  </div>
+  <div class="exhibitBox">
+    <span class="desc">取货日期</span>
+    <span class="value padding0">{{orderModel.orderDetail.pickupdate}}</span>
+  </div>
+  <div class="exhibitBox">
+    <span class="desc">取货时间</span>
+    <span class="value padding0">{{orderModel.orderDetail.pickuptime}}</span>
+  </div>
+
+  <div class="bottomBox" *ngIf="orderModel.orderDetail.status=='unpaid'">
+    <!--unpaid-->
+    <button (click)="cancelHandle()" class="f-l outline">取消订单</button>
+    <button (click)="payHandle()" class="f-r">立即付款</button>
+  </div>
+
+  <div class="bottomBox" *ngIf="orderModel.orderDetail.status=='cancelled'">
+    <!--cancelled-->
+    <span class="f-l">订单已取消</span>
+    <button (click)="jumpHome()" class="f-r">返回首页</button>
+  </div>
+
+  <div class="bottomBox" *ngIf="orderModel.orderDetail.status=='unshipped'">
+    <!--unshipped-->
+    <span class="f-l">待发货</span>
+    <button (click)="jumpHome()" class="f-r">返回首页</button>
+  </div>
+
+  <div class="bottomBox" *ngIf="orderModel.orderDetail.status=='shipped'">
+    <!--shipped-->
+    <span class="f-l">已发货</span>
+    <button (click)="receiveHandle()" class="f-r">确认收货</button>
+  </div>
+
+  <div class="bottomBox" *ngIf="orderModel.orderDetail.status=='completed'">
+    <!--completed-->
+    <span class="f-l">已完成</span>
+    <button (click)="delHandle()" class="f-r">删除订单</button>
+  </div>
+
+  <div class="bottomBox" *ngIf="orderModel.orderDetail.status=='deleted'">
+    <!--deleted-->
+    <span class="f-l">已删除</span>
+    <button (click)="jumpHome()" class="f-r">返回首页</button>
+  </div>
+</div>

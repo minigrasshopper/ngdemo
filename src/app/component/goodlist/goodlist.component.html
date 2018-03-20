@@ -1,0 +1,11 @@
+<ul class="goodList">
+  <li *ngFor="let item of list" (click)="jumpGoodDetail(item.id)">
+    <div class="wh-same rel">
+      <img class="abs-center wh-100" [src]="item.cover" alt="">
+    </div>
+    <div>
+      <h6 class="hidden-e">{{item.name}}</h6>
+      <p>&yen;{{item.price}}</p>
+    </div>
+  </li>
+</ul>

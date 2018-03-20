@@ -1,0 +1,49 @@
+@import "../../../styles";
+
+.icon-cart{
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  line-height: 36px;
+  right: $padding;
+  color: #fff;
+  font-size: 2.4rem;
+}
+.infoBox{
+  background: #fff;
+  padding: $padding;
+  border: 1px solid $border;
+  border-left: none;
+  border-right: none;
+  h6{
+    font-weight: 500;
+  }
+  div{
+    overflow: hidden;
+    margin: 5px 0;
+    span{
+      float: left;
+      line-height: 32px;
+      color: $color-primary;
+      font-size: 1.6rem;
+    }
+    app-cartdeal{
+      float: right;
+    }
+  }
+}
+
+.descBox{
+  background: #fff;
+  margin-top: 10px;
+  padding: 0 $padding;
+}
+.bottomBox{
+  text-align: center;
+}
+
+:host ::ng-deep .descBox {
+  img{
+    width: 100%;
+  }
+}

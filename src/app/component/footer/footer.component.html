@@ -1,0 +1,34 @@
+<footer>
+  <ul>
+    <li (click)="tabHandle(1)" [class]="type==1?'selected':''">
+      <div>
+        <i class="iconfont icon-home"></i>
+        <p>首页</p>
+      </div>
+    </li>
+    <li (click)="tabHandle(2)" [class]="type==2?'selected':''">
+      <div>
+        <i class="iconfont icon-category"></i>
+        <p>全部分类</p>
+      </div>
+    </li>
+    <li (click)="tabHandle(3)" [class]="type==3?'selected':''">
+      <div>
+        <i class="iconfont icon-cart"></i>
+        <p>购物车</p>
+        <span *ngIf="cartModel.length != 0" class="cartNum">{{cartModel.length}}</span>
+      </div>
+    </li>
+    <li (click)="tabHandle(4)" [class]="type==4?'selected':''">
+      <div>
+        <i class="iconfont icon-profile"></i>
+        <p>个人中心</p>
+      </div>
+    </li>
+  </ul>
+  <ul [class]="cateShow?'cateRun':''">
+    <ng-container *ngFor="let item of goodModel.category">
+      <li *ngIf="item.goodsnum > 0" [class]="cateId==item.id?'selected':''" (click)="jumpGoodList(item.name, item.id)">{{item.name}}</li>
+    </ng-container>
+  </ul>
+</footer>
